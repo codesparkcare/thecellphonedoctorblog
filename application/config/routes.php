@@ -22,6 +22,11 @@ $route['admin/delete_category/(:num)'] = 'admin/delete_category/$1';
 $route['api/blogs/latest'] = 'api/latest_blogs';
 $route['api/blogs'] = 'api/latest_blogs';
 
+// SEO XML Sitemap
+$route['sitemap.xml'] = 'sitemap/index';
+$route['sitemap']     = 'sitemap/index';
+$route['blog/sitemap.xml'] = 'sitemap/index';
+
 // Public Blog Routes
 $route['post/(:any)'] = 'blog/post/$1';
 $route['category/(:any)/(:num)'] = 'blog/category/$1/$2';
