@@ -30,6 +30,9 @@ if (isset($_SERVER['HTTP_HOST'])) {
         ? 'https://' : 'http://';
 
     $host = $_SERVER['HTTP_HOST'];
+    if ($host === '[::1]' || $host === '127.0.0.1') {
+        $host = 'localhost';
+    }
     $script_dir = trim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
     $config['base_url'] = $protocol . $host . ($script_dir !== '' ? '/' . $script_dir : '') . '/';
 } else {
@@ -398,7 +401,15 @@ $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_samesite'] = 'Lax';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = sys_get_temp_dir();
+
+$sess_save_path = APPPATH . 'cache/sessions';
+if (!is_dir($sess_save_path)) {
+    @mkdir($sess_save_path, 0777, TRUE);
+}
+$config['sess_save_path'] = (is_dir($sess_save_path) && is_writable($sess_save_path))
+    ? $sess_save_path
+    : (is_writable('/tmp') ? '/tmp' : sys_get_temp_dir());
+
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

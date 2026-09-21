@@ -4,11 +4,16 @@ Archive.zip
 
 application/cache/*
 !application/cache/index.html
+!application/cache/sessions/
+application/cache/sessions/*
+!application/cache/sessions/index.html
+!application/cache/sessions/.htaccess
 
 application/logs/*
 !application/logs/index.html
 
 !application/*/.htaccess
+!application/*/*/.htaccess
 
 composer.lock
 tests/mocks/database/ci_test.sqlite
