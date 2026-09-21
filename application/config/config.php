@@ -22,21 +22,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | If you need to allow multiple domains, remember that this file is still
 | a PHP script and you can easily do that on your own.
 |
-if (isset($_SERVER['HTTP_HOST'])) {
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
-        || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
-        || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
-        || (isset($_SERVER['HTTP_CF_VISITOR']) && strpos($_SERVER['HTTP_CF_VISITOR'], 'https') !== false)
-        ? 'https://' : 'http://';
+*/
+$is_local = (
+    !isset($_SERVER['HTTP_HOST'])
+    || $_SERVER['HTTP_HOST'] === 'localhost'
+    || strpos($_SERVER['HTTP_HOST'], 'localhost') !== false
+    || strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false
+    || strpos($_SERVER['HTTP_HOST'], '::1') !== false
+);
 
-    $host = $_SERVER['HTTP_HOST'];
-    if ($host === '[::1]' || $host === '127.0.0.1') {
-        $host = 'localhost';
-    }
-    $script_dir = trim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
-    $config['base_url'] = $protocol . $host . ($script_dir !== '' ? '/' . $script_dir : '') . '/';
-} else {
+if ($is_local) {
     $config['base_url'] = 'http://localhost/cellphoneblog/';
+} else {
+    $config['base_url'] = 'https://thecellphonedoctor.com/blog/';
 }
 
 /*
