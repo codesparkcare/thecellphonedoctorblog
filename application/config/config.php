@@ -400,13 +400,17 @@ $config['sess_cookie_name'] = 'ci_session';
 $config['sess_samesite'] = 'Lax';
 $config['sess_expiration'] = 7200;
 
-$sess_save_path = APPPATH . 'cache/sessions';
-if (!is_dir($sess_save_path)) {
-    @mkdir($sess_save_path, 0777, TRUE);
+if (is_dir('/Applications/XAMPP/xamppfiles/temp') && is_writable('/Applications/XAMPP/xamppfiles/temp')) {
+    $config['sess_save_path'] = '/Applications/XAMPP/xamppfiles/temp';
+} elseif (is_dir('/tmp') && is_writable('/tmp')) {
+    $config['sess_save_path'] = '/tmp';
+} else {
+    $sess_save_path = APPPATH . 'cache/sessions';
+    if (!is_dir($sess_save_path)) {
+        @mkdir($sess_save_path, 0777, TRUE);
+    }
+    $config['sess_save_path'] = $sess_save_path;
 }
-$config['sess_save_path'] = (is_dir($sess_save_path) && is_writable($sess_save_path))
-    ? $sess_save_path
-    : (is_writable('/tmp') ? '/tmp' : sys_get_temp_dir());
 
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
