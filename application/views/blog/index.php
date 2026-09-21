@@ -20,7 +20,7 @@
 
             <!-- Search Bar -->
             <div class="mx-auto" style="max-width: 520px;">
-                <form method="GET" action="<?php echo base_url('blog'); ?>" class="input-group input-group-lg shadow-sm">
+                <form method="GET" action="<?php echo base_url(); ?>" class="input-group input-group-lg shadow-sm">
                     <input type="text" name="q" class="form-control border-0 ps-4" placeholder="Search display, battery, water damage..." value="<?php echo html_escape($search_query); ?>" style="border-radius: 12px 0 0 12px; font-size: 0.95rem;">
                     <button class="btn btn-primary px-4 fw-bold" type="submit" style="border-radius: 0 12px 12px 0;">
                         <i class="fa-solid fa-magnifying-glass me-1"></i> Search
@@ -40,7 +40,7 @@
                 <?php if (!empty($search_query)): ?>
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h5 class="text-muted mb-0">Search results for: <span class="fw-bold text-dark">"<?php echo html_escape($search_query); ?>"</span> (<?php echo $total_posts; ?> found)</h5>
-                        <a href="<?php echo base_url('blog'); ?>" class="btn btn-sm btn-outline-secondary">Clear Search</a>
+                        <a href="<?php echo base_url(); ?>" class="btn btn-sm btn-outline-secondary">Clear Search</a>
                     </div>
                 <?php endif; ?>
 
@@ -49,7 +49,7 @@
                         <?php foreach ($posts as $post): ?>
                             <div class="col-md-6">
                                 <div class="blog-card">
-                                    <a href="<?php echo base_url('blog/post/' . $post['slug']); ?>">
+                                    <a href="<?php echo base_url('post/' . $post['slug']); ?>">
                                         <?php if (!empty($post['featured_image'])): ?>
                                             <img src="<?php echo base_url($post['featured_image']); ?>" class="blog-card-img" alt="<?php echo html_escape($post['title']); ?>" loading="lazy">
                                         <?php else: ?>
@@ -62,13 +62,13 @@
                                     <div class="p-4 d-flex flex-column flex-grow-1">
                                         <div>
                                             <?php if (!empty($post['category_slug'])): ?>
-                                                <a href="<?php echo base_url('blog/category/' . $post['category_slug']); ?>" class="blog-badge">
+                                                <a href="<?php echo base_url('category/' . $post['category_slug']); ?>" class="blog-badge">
                                                     <?php echo html_escape($post['category_name']); ?>
                                                 </a>
                                             <?php endif; ?>
 
                                             <h3 class="blog-card-title">
-                                                <a href="<?php echo base_url('blog/post/' . $post['slug']); ?>">
+                                                <a href="<?php echo base_url('post/' . $post['slug']); ?>">
                                                     <?php echo html_escape($post['title']); ?>
                                                 </a>
                                             </h3>
@@ -100,7 +100,7 @@
                         <i class="fa-solid fa-newspaper fs-1 text-muted mb-3"></i>
                         <h4 class="fw-bold">No articles found</h4>
                         <p class="text-muted">Check back soon for new troubleshooting guides and repair tutorials.</p>
-                        <a href="<?php echo base_url('blog'); ?>" class="btn btn-primary mt-2">View All Articles</a>
+                        <a href="<?php echo base_url(); ?>" class="btn btn-primary mt-2">View All Articles</a>
                     </div>
                 <?php endif; ?>
             </div>
@@ -114,7 +114,7 @@
                         <ul class="list-unstyled mb-0">
                             <?php foreach ($categories as $cat): ?>
                                 <li class="mb-2">
-                                    <a href="<?php echo base_url('blog/category/' . $cat['slug']); ?>" class="d-flex justify-content-between align-items-center text-decoration-none text-secondary py-1 px-2 rounded hover-bg">
+                                    <a href="<?php echo base_url('category/' . $cat['slug']); ?>" class="d-flex justify-content-between align-items-center text-decoration-none text-secondary py-1 px-2 rounded hover-bg">
                                         <span class="fw-medium"><i class="fa-solid fa-angle-right me-2 text-muted" style="font-size: 0.8rem;"></i> <?php echo html_escape($cat['name']); ?></span>
                                         <span class="badge bg-light text-muted border"><?php echo $cat['total_posts']; ?></span>
                                     </a>

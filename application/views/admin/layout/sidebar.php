@@ -36,7 +36,7 @@
 
         <li class="menu-title">Quick Links</li>
         <li>
-            <a href="<?php echo base_url('blog'); ?>" target="_blank">
+            <a href="<?php echo base_url(); ?>" target="_blank">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i> View Public Blog
             </a>
         </li>

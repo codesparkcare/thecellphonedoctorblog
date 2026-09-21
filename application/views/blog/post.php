@@ -2,9 +2,9 @@
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb" style="font-size: 0.88rem;">
-            <li class="breadcrumb-item"><a href="<?php echo base_url('blog'); ?>" class="text-decoration-none text-muted"><i class="fa-solid fa-house me-1"></i> Blog</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>" class="text-decoration-none text-muted"><i class="fa-solid fa-house me-1"></i> Blog</a></li>
             <?php if (!empty($post['category_slug'])): ?>
-                <li class="breadcrumb-item"><a href="<?php echo base_url('blog/category/' . $post['category_slug']); ?>" class="text-decoration-none text-muted"><?php echo html_escape($post['category_name']); ?></a></li>
+                <li class="breadcrumb-item"><a href="<?php echo base_url('category/' . $post['category_slug']); ?>" class="text-decoration-none text-muted"><?php echo html_escape($post['category_name']); ?></a></li>
             <?php endif; ?>
             <li class="breadcrumb-item active text-dark text-truncate" style="max-width: 380px;" aria-current="page"><?php echo html_escape($post['title']); ?></li>
         </ol>
@@ -16,7 +16,7 @@
             <article class="bg-white p-4 p-md-5 rounded-4 border">
                 <!-- Category Badge -->
                 <?php if (!empty($post['category_slug'])): ?>
-                    <a href="<?php echo base_url('blog/category/' . $post['category_slug']); ?>" class="blog-badge mb-3">
+                    <a href="<?php echo base_url('category/' . $post['category_slug']); ?>" class="blog-badge mb-3">
                         <?php echo html_escape($post['category_name']); ?>
                     </a>
                 <?php endif; ?>
@@ -101,7 +101,7 @@
                         <?php foreach ($related_posts as $rel): ?>
                             <div class="col-md-6 col-lg-4">
                                 <div class="blog-card">
-                                    <a href="<?php echo base_url('blog/post/' . $rel['slug']); ?>">
+                                    <a href="<?php echo base_url('post/' . $rel['slug']); ?>">
                                         <?php if (!empty($rel['featured_image'])): ?>
                                             <img src="<?php echo base_url($rel['featured_image']); ?>" class="blog-card-img" style="height: 150px;" alt="<?php echo html_escape($rel['title']); ?>">
                                         <?php else: ?>
@@ -112,7 +112,7 @@
                                     </a>
                                     <div class="p-3">
                                         <h6 class="fw-bold mb-2">
-                                            <a href="<?php echo base_url('blog/post/' . $rel['slug']); ?>" class="text-decoration-none text-dark">
+                                            <a href="<?php echo base_url('post/' . $rel['slug']); ?>" class="text-decoration-none text-dark">
                                                 <?php echo html_escape(character_limiter($rel['title'], 55)); ?>
                                             </a>
                                         </h6>
@@ -147,7 +147,7 @@
                     <ul class="list-unstyled mb-0">
                         <?php foreach ($categories as $cat): ?>
                             <li class="mb-2">
-                                <a href="<?php echo base_url('blog/category/' . $cat['slug']); ?>" class="d-flex justify-content-between align-items-center text-decoration-none text-secondary py-1 px-2 rounded">
+                                <a href="<?php echo base_url('category/' . $cat['slug']); ?>" class="d-flex justify-content-between align-items-center text-decoration-none text-secondary py-1 px-2 rounded">
                                     <span class="fw-medium"><?php echo html_escape($cat['name']); ?></span>
                                     <span class="badge bg-light text-muted border"><?php echo $cat['total_posts']; ?></span>
                                 </a>

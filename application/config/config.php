@@ -22,8 +22,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | If you need to allow multiple domains, remember that this file is still
 | a PHP script and you can easily do that on your own.
 |
-*/
-$config['base_url'] = 'http://localhost/cellphoneblog/';
+if (isset($_SERVER['HTTP_HOST'])) {
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
+        || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+        || (isset($_SERVER['HTTP_CF_VISITOR']) && strpos($_SERVER['HTTP_CF_VISITOR'], 'https') !== false)
+        ? 'https://' : 'http://';
+
+    $host = $_SERVER['HTTP_HOST'];
+    $script_dir = trim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
+    $config['base_url'] = $protocol . $host . ($script_dir !== '' ? '/' . $script_dir : '') . '/';
+} else {
+    $config['base_url'] = 'http://localhost/cellphoneblog/';
+}
 
 /*
 |--------------------------------------------------------------------------

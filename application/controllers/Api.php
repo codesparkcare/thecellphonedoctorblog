@@ -29,9 +29,9 @@ class Api extends CI_Controller {
         // Format image URLs and post URLs
         foreach ($posts as &$p) {
             $p['featured_image_url'] = !empty($p['featured_image']) ? base_url($p['featured_image']) : null;
-            $p['public_url']         = base_url('blog/post/' . $p['slug']);
+            $p['public_url']         = base_url('post/' . $p['slug']);
             if (empty($p['canonical_url'])) {
-                $p['canonical_url']  = 'https://thecellphonedoctor.com/blog/' . $p['slug'];
+                $p['canonical_url']  = base_url('post/' . $p['slug']);
             }
         }
 

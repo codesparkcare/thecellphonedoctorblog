@@ -17,10 +17,10 @@
                 <div class="col-sm-6 col-lg-2 offset-lg-1">
                     <h6 class="text-white fw-bold mb-3 text-uppercase" style="font-size: 0.82rem; letter-spacing: 1px;">Repair Guides</h6>
                     <ul class="list-unstyled mb-0" style="font-size: 0.9rem;">
-                        <li class="mb-2"><a href="<?php echo base_url('blog/category/screen-replacement'); ?>" class="text-white-50 text-decoration-none">Screen Repair</a></li>
-                        <li class="mb-2"><a href="<?php echo base_url('blog/category/battery-charging'); ?>" class="text-white-50 text-decoration-none">Battery Care</a></li>
-                        <li class="mb-2"><a href="<?php echo base_url('blog/category/water-damage-repair'); ?>" class="text-white-50 text-decoration-none">Water Damage</a></li>
-                        <li class="mb-2"><a href="<?php echo base_url('blog/category/motherboard-hardware'); ?>" class="text-white-50 text-decoration-none">Motherboard Fix</a></li>
+                        <li class="mb-2"><a href="<?php echo base_url('category/screen-replacement'); ?>" class="text-white-50 text-decoration-none">Screen Repair</a></li>
+                        <li class="mb-2"><a href="<?php echo base_url('category/battery-charging'); ?>" class="text-white-50 text-decoration-none">Battery Care</a></li>
+                        <li class="mb-2"><a href="<?php echo base_url('category/water-damage-repair'); ?>" class="text-white-50 text-decoration-none">Water Damage</a></li>
+                        <li class="mb-2"><a href="<?php echo base_url('category/motherboard-hardware'); ?>" class="text-white-50 text-decoration-none">Motherboard Fix</a></li>
                     </ul>
                 </div>
 

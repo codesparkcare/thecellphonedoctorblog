@@ -321,7 +321,7 @@
     <header class="site-header">
         <div class="container py-2">
             <div class="d-flex justify-content-between align-items-center">
-                <a href="<?php echo base_url('blog'); ?>" class="header-brand">
+                <a href="<?php echo base_url(); ?>" class="header-brand">
                     <div class="brand-icon">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                     </div>
@@ -333,10 +333,10 @@
 
                 <nav class="d-none d-lg-flex align-items-center gap-1">
                     <a href="https://thecellphonedoctor.com" class="nav-link">Main App</a>
-                    <a href="<?php echo base_url('blog'); ?>" class="nav-link active">Blog Guides</a>
-                    <a href="<?php echo base_url('blog/category/screen-replacement'); ?>" class="nav-link">Screen Repair</a>
-                    <a href="<?php echo base_url('blog/category/battery-charging'); ?>" class="nav-link">Battery</a>
-                    <a href="<?php echo base_url('blog/category/water-damage-repair'); ?>" class="nav-link">Water Damage</a>
+                    <a href="<?php echo base_url(); ?>" class="nav-link active">Blog Guides</a>
+                    <a href="<?php echo base_url('category/screen-replacement'); ?>" class="nav-link">Screen Repair</a>
+                    <a href="<?php echo base_url('category/battery-charging'); ?>" class="nav-link">Battery</a>
+                    <a href="<?php echo base_url('category/water-damage-repair'); ?>" class="nav-link">Water Damage</a>
                 </nav>
 
                 <div class="d-flex align-items-center gap-2">

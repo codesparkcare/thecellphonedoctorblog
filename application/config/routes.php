@@ -23,9 +23,18 @@ $route['api/blogs/latest'] = 'api/latest_blogs';
 $route['api/blogs'] = 'api/latest_blogs';
 
 // Public Blog Routes
+$route['post/(:any)'] = 'blog/post/$1';
+$route['category/(:any)/(:num)'] = 'blog/category/$1/$2';
+$route['category/(:any)'] = 'blog/category/$1';
+$route['page/(:num)'] = 'blog/index/$1';
+
+// Backwards compatibility for prefixed routes
 $route['blog'] = 'blog/index';
 $route['blog/page/(:num)'] = 'blog/index/$1';
 $route['blog/category/(:any)/(:num)'] = 'blog/category/$1/$2';
 $route['blog/category/(:any)'] = 'blog/category/$1';
 $route['blog/post/(:any)'] = 'blog/post/$1';
 $route['blog/(:any)'] = 'blog/post/$1';
+
+// Fallback: Direct post slug (e.g. /how-to-fix-water-damaged-phone)
+$route['(:any)'] = 'blog/post/$1';

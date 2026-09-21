@@ -23,10 +23,10 @@ class Blog extends CI_Controller {
         $categories  = $this->Blog_model->get_categories();
 
         // Pagination Config
-        $config['base_url']    = base_url('blog/page');
+        $config['base_url']    = base_url('page');
         $config['total_rows']  = $total_posts;
         $config['per_page']    = $limit;
-        $config['uri_segment'] = 3;
+        $config['uri_segment'] = 2;
         $config['full_tag_open']   = '<ul class="pagination justify-content-center">';
         $config['full_tag_close']  = '</ul>';
         $config['num_tag_open']    = '<li class="page-item">';
@@ -46,7 +46,7 @@ class Blog extends CI_Controller {
             'meta_title'       => 'Expert Mobile Repair Guides & Phone Care Tips | The CellPhone Doctor',
             'meta_description' => 'Read certified technician guides on mobile screen replacement, battery health, water damage rescue and smartphone maintenance across Tamil Nadu.',
             'meta_keywords'    => 'phone repair tips, screen replacement guides, battery health fix, water damaged phone repair, mobile doctor blog',
-            'canonical_url'    => 'https://thecellphonedoctor.com/blog',
+            'canonical_url'    => base_url(),
             'og_image'         => base_url('assets/images/blog-banner.jpg'),
             'og_type'          => 'website'
         );
@@ -91,7 +91,7 @@ class Blog extends CI_Controller {
         // Canonical URL resolution
         $canonical = !empty($post['canonical_url']) 
             ? $post['canonical_url'] 
-            : 'https://thecellphonedoctor.com/blog/' . $post['slug'];
+            : base_url('post/' . $post['slug']);
 
         // SEO Meta Data
         $data['seo'] = array(
@@ -121,7 +121,7 @@ class Blog extends CI_Controller {
 
     public function category($slug = '', $offset = 0) {
         if (empty($slug)) {
-            redirect('blog');
+            redirect('/');
         }
 
         $category = $this->Blog_model->get_category_by_slug($slug);
@@ -138,7 +138,7 @@ class Blog extends CI_Controller {
             'meta_title'       => $category['name'] . ' Guides & Repair Tips | The CellPhone Doctor',
             'meta_description' => !empty($category['description']) ? $category['description'] : 'Browse expert repair articles and maintenance guides for ' . $category['name'] . '.',
             'meta_keywords'    => strtolower($category['name']) . ', phone repair, mobile service guides',
-            'canonical_url'    => 'https://thecellphonedoctor.com/blog/category/' . $category['slug'],
+            'canonical_url'    => base_url('category/' . $category['slug']),
             'og_image'         => base_url('assets/images/blog-banner.jpg'),
             'og_type'          => 'website'
         );
