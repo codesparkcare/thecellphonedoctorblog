@@ -2,11 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
+    <!-- Main Website Home -->
+    <url>
+        <loc><?php echo (strpos(base_url(), 'thecellphonedoctor.com') !== false) ? 'https://thecellphonedoctor.com/' : 'http://localhost/'; ?></loc>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
     <!-- Blog Home Page -->
     <url>
         <loc><?php echo base_url(); ?></loc>
         <changefreq>daily</changefreq>
-        <priority>1.0</priority>
+        <priority>0.9</priority>
     </url>
 
     <!-- Categories -->
