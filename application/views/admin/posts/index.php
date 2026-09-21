@@ -117,7 +117,7 @@
                                 </td>
                                 <td class="text-end">
                                     <div class="btn-group btn-group-sm">
-                                        <a href="<?php echo base_url('post/' . $post['slug']); ?>" target="_blank" class="btn btn-outline-secondary" title="View Public Page">
+                                        <a href="<?php echo base_url($post['slug']); ?>" target="_blank" class="btn btn-outline-secondary" title="View Public Page">
                                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                         </a>
                                         <a href="<?php echo base_url('admin/edit_post/' . $post['id']); ?>" class="btn btn-outline-primary" title="Edit Article">

@@ -49,7 +49,7 @@
                         <?php foreach ($posts as $post): ?>
                             <div class="col-md-6">
                                 <div class="blog-card">
-                                    <a href="<?php echo base_url('post/' . $post['slug']); ?>">
+                                    <a href="<?php echo base_url($post['slug']); ?>">
                                         <?php if (!empty($post['featured_image'])): ?>
                                             <img src="<?php echo base_url($post['featured_image']); ?>" class="blog-card-img" alt="<?php echo html_escape($post['title']); ?>" loading="lazy">
                                         <?php else: ?>
@@ -68,7 +68,7 @@
                                             <?php endif; ?>
 
                                             <h3 class="blog-card-title">
-                                                <a href="<?php echo base_url('post/' . $post['slug']); ?>">
+                                                <a href="<?php echo base_url($post['slug']); ?>">
                                                     <?php echo html_escape($post['title']); ?>
                                                 </a>
                                             </h3>

@@ -68,7 +68,13 @@ class Blog extends CI_Controller {
 
     public function post($slug = '') {
         if (empty($slug)) {
-            redirect('blog');
+            redirect('/');
+        }
+
+        // 301 redirect legacy /post/ or /blog/ prefixed URLs to clean slug
+        $current_uri = $this->uri->uri_string();
+        if (strpos($current_uri, 'post/') !== false || strpos($current_uri, 'blog/') !== false) {
+            redirect($slug, 'location', 301);
         }
 
         $post = $this->Blog_model->get_post_by_slug($slug);
@@ -91,7 +97,7 @@ class Blog extends CI_Controller {
         // Canonical URL resolution
         $canonical = !empty($post['canonical_url']) 
             ? $post['canonical_url'] 
-            : base_url('post/' . $post['slug']);
+            : base_url($post['slug']);
 
         // SEO Meta Data
         $data['seo'] = array(

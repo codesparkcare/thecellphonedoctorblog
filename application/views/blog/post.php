@@ -101,7 +101,7 @@
                         <?php foreach ($related_posts as $rel): ?>
                             <div class="col-md-6 col-lg-4">
                                 <div class="blog-card">
-                                    <a href="<?php echo base_url('post/' . $rel['slug']); ?>">
+                                    <a href="<?php echo base_url($rel['slug']); ?>">
                                         <?php if (!empty($rel['featured_image'])): ?>
                                             <img src="<?php echo base_url($rel['featured_image']); ?>" class="blog-card-img" style="height: 150px;" alt="<?php echo html_escape($rel['title']); ?>">
                                         <?php else: ?>
@@ -112,7 +112,7 @@
                                     </a>
                                     <div class="p-3">
                                         <h6 class="fw-bold mb-2">
-                                            <a href="<?php echo base_url('post/' . $rel['slug']); ?>" class="text-decoration-none text-dark">
+                                            <a href="<?php echo base_url($rel['slug']); ?>" class="text-decoration-none text-dark">
                                                 <?php echo html_escape(character_limiter($rel['title'], 55)); ?>
                                             </a>
                                         </h6>

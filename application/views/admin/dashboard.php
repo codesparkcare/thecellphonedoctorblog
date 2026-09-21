@@ -133,7 +133,7 @@
                                 <td><i class="fa-solid fa-eye text-muted me-1"></i> <?php echo number_format($post['views']); ?></td>
                                 <td><small class="text-muted"><?php echo date('M d, Y', strtotime($post['created_at'])); ?></small></td>
                                 <td class="text-end">
-                                    <a href="<?php echo base_url('post/' . $post['slug']); ?>" target="_blank" class="btn btn-sm btn-light border text-primary" title="View Article">
+                                    <a href="<?php echo base_url($post['slug']); ?>" target="_blank" class="btn btn-sm btn-light border text-primary" title="View Article">
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                     </a>
                                     <a href="<?php echo base_url('admin/edit_post/' . $post['id']); ?>" class="btn btn-sm btn-light border text-secondary" title="Edit Article">

@@ -11,7 +11,7 @@
             <h3 class="fw-bold mb-0" style="font-family: 'Poppins', sans-serif;">Edit Blog Post</h3>
         </div>
         <div class="d-flex gap-2">
-            <a href="<?php echo base_url('post/' . $post['slug']); ?>" target="_blank" class="btn btn-outline-primary btn-sm">
+            <a href="<?php echo base_url($post['slug']); ?>" target="_blank" class="btn btn-outline-primary btn-sm">
                 <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> View Live
             </a>
             <a href="<?php echo base_url('admin/posts'); ?>" class="btn btn-outline-secondary btn-sm">
